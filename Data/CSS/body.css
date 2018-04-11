@@ -1,0 +1,12 @@
+.body {
+    height: 100vh;
+    min-height: 330px;
+    min-width: 300px;
+    margin: 0;
+}
+
+.body {
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}

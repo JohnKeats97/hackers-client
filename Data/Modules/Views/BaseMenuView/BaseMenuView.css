@@ -1,0 +1,93 @@
+.viewTitle
+{
+    font-family: 'Indie Flower', cursive;
+    font-size: 500%;
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 1%;
+    color: #12212a;
+}
+
+.header2 {
+    user-select: none;
+    font-size: 5vh;
+    padding-top: 28vh;
+}
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60vw;
+    min-width: 300px;
+}
+
+.wrapper_menu {
+    min-width: 200px;
+    width:30vw;
+    align-items: center;
+}
+
+.wrapper__header {
+    width: 100%;
+    text-align: center;
+}
+
+
+.wrapper__main {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+
+.button {
+    height: 44px;
+    font-size: 15px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 100px;
+    background: #5D6DBB;
+    color: #FFFFFF;
+    cursor: pointer;
+    outline: none;
+    width: 34vw;
+    min-width: 160px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left:5px;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+.button:hover {
+    background-color: #5665A8;
+}
+
+.button_secondary {
+    background: #3AAACF;
+}
+.button_secondary:hover {
+    background: #3195B6;
+}
+
+.smallButton
+{
+    font-weight: 600;
+    font-family: 'Indie Flower', cursive;
+    font-size: 200%;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.smallButton:hover
+{
+    font-size: 240%;
+    font-weight: 600;
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
+}

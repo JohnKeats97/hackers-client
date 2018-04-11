@@ -1,0 +1,45 @@
+.button {
+    height: 44px;
+    font-size: 15px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 100px;
+    background: #5D6DBB;
+    color: #FFFFFF;
+    cursor: pointer;
+    outline: none;
+    width: 34vw;
+    min-width: 160px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left:5px;
+}
+
+
+.button:hover {
+    background-color: #5665A8;
+}
+
+.button_disabled {
+    opacity: 0.48;
+    pointer-events: none;
+    user-select: none;
+}
+
+.button_secondary {
+    background: #3AAACF;
+}
+.button_secondary:hover {
+    background: #3195B6;
+}
+
+.button {
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.button_spaced {
+    margin-right: 3vw;
+}
+

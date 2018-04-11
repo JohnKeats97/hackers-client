@@ -21,21 +21,9 @@
 
 
 .page__header {
-    height: 25vh;
+    height: 5vh;
     font-size: 7vh;
     position: static;
     padding-top: 3vh;
-}
-
-.page__main  {
-    height: 70vh;
-}
-
-.page__footer {
-    height: 10vh;
-    color: black;
-    font-size: 3vh;
-    /*use js to fix minimum text size*/
-    position: static;
-    padding-bottom: 5vh;
+    text-align: center;
 }

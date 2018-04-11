@@ -46,3 +46,10 @@
     margin-right: 3vw;
 }
 
+.button_back {
+    width: 20vw;
+    position: relative;
+    top: 4vh;
+    left: 5vw;
+}
+

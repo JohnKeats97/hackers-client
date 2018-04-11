@@ -1,7 +1,9 @@
 .leaderTable
 {
     border-collapse: collapse;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    font-style: normal;
     border: 1px solid black;
     width: 70%;
     margin: auto;
@@ -10,12 +12,16 @@
 
 .tableHeader
 {
+    padding-left: 10px;
+    padding-right: 10px;
     border: 1px solid #212121;
-    background-color: #fffef6;
+    background-color: #5665A8
 }
 
 .contents
 {
+    padding-left: 10px;
+    padding-right: 10px;
     border: 1px solid #212121;
     background-color: rgba(127, 127, 127, 0);
 }

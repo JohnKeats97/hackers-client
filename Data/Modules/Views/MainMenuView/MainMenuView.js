@@ -8,7 +8,7 @@ const mainMenu = new BaseView(document.getElementsByClassName("page")[0], genera
         menus:
             [
                 {name: "Начать тест", id: "/startGame", class: "button"},
-                {name: "Таблица лучших игроков", id: "/leaderboardMenu", class: "button button_secondary"},
+                {name: "Таблица лидеров", id: "/leaderboardMenu", class: "button button_secondary"},
                 {name: "О нас", id: "/aboutMenu", class: "button button_secondary"},
             ]
     });

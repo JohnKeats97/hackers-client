@@ -31,8 +31,8 @@ class MenuManager extends Subscriber
         this.menus =
             {
                 "/": new MainMenuController(mainMenuView),
-                // "/leaderboardMenu": new LeaderboardController(leaderboardView),
-                // "/aboutMenu": new AboutMenuController(aboutMenuView),
+                "/leaderboardMenu": new LeaderboardController(leaderboardView),
+                "/aboutMenu": new AboutMenuController(aboutMenuView),
                 // "/startGame": new StartGameMenuSelector(),
                 // "/selectMode": new GameModeMenuController(gameModeMenuView),
                 // "/startGame/login": new LoginMenuController(loginMenuView),

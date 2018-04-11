@@ -11,18 +11,21 @@
 
 .smallButton
 {
-    font-weight: 600;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    font-style: normal;
     font-size: 200%;
     text-align: center;
     cursor: pointer;
     margin-left: 10px;
+    color: white;
 }
 
 .smallButton:hover
 {
     font-size: 240%;
-    font-weight: 600;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    font-style: normal;
     text-align: center;
 }

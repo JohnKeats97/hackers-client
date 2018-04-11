@@ -14,7 +14,6 @@ class MainMenuController extends BaseController
 
         this.buttons = {};
         debugger;
-
         this.view.element.childNodes[0].childNodes[1].childNodes.forEach((item) =>
         {
             let id = item.dataset.id;

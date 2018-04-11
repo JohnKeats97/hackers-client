@@ -35,7 +35,7 @@ class MenuManager extends Subscriber
                 "/aboutMenu": new AboutMenuController(aboutMenuView),
                 // "/startGame": new StartGameMenuSelector(),
                 // "/selectMode": new GameModeMenuController(gameModeMenuView),
-                // "/startGame/login": new LoginMenuController(loginMenuView),
+                "/startGame/login": new LoginMenuController(loginMenuView),
                 // "/startGame/register": new RegisterMenuController(registerMenuView),
                 // "/startGame/offline": new StandAloneController(),
                 // "/startGame/online": new SingleplayerController(),

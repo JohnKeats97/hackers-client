@@ -32,7 +32,7 @@ const menuManager = new MenuManager();
 eventBus.subscribe(menuManager);
 menuManager.go();
 
-AddOrientationEvent();
-OrientationChange();
+// AddOrientationEvent();
+// OrientationChange();
 
 window.onpopstate = menuManager.go.bind(menuManager);

@@ -14,7 +14,7 @@ class StartTestController
 
     onShow()
     {
-        this.view.changeData({title: "Start Test", players: []});
+        // this.view.changeData({title: "Start Test", players: []});
         // Services.getLeaders()
         //     .then(result =>
         //     {

@@ -47,10 +47,10 @@ class MenuManager extends Subscriber
             };
 
         this.currentMenu = this.menus["/"];
-        this.currentMenu.show();
+        // this.currentMenu.show();
 
         this.profileBlock = new UserProfileBlockController(userProfileBlockView);
-        this.profileBlock.show();
+        //this.profileBlock.show();
 
         MenuManager.instance = this;
     }

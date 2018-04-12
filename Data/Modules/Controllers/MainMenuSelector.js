@@ -16,6 +16,7 @@ class MainMenuSelector
 
     show()
     {
+        debugger;
         Services.getUser()
             .then(response =>
             {

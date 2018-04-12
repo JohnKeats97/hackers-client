@@ -18,6 +18,7 @@ function sendIndex(req, res)
 
 // Routing paths
 app.get("/", sendIndex);
+app.get("/menuUnRegister", sendIndex);
 app.get("/leaderboardMenu", sendIndex);
 app.get("/aboutMenu", sendIndex);
 app.get("/startGame", sendIndex);

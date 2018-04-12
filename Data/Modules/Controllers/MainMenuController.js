@@ -14,7 +14,6 @@ class MainMenuController extends BaseController
         super(view);
 
         this.buttons = {};
-        debugger;
         this.view.element.childNodes[0].childNodes[1].childNodes.forEach((item) =>
         {
             let id = item.dataset.id;
@@ -38,7 +37,7 @@ class MainMenuController extends BaseController
             });
         });
 
-        this.title = "Sea Battle";
+        this.title = "Menu";
         this.url = "/";
     }
 }

@@ -2,6 +2,7 @@
 
 import Subscriber from "./Subscriber.js";
 import mainMenuView from "./Views/MainMenuView/MainMenuView.js";
+import mainMenuUnRegisterView from "./Views/MainMemuViewUnRegister/MainMenuViewUnRegister"
 import aboutMenuView from "./Views/AboutMenuView/AboutMenuView.js";
 import leaderboardView from "./Views/LeaderboardView/LeaderboardView.js";
 import gameModeMenuView from "./Views/GameModeMenuView/GameModeMenuView.js";
@@ -9,6 +10,7 @@ import loginMenuView from "./Views/LoginMenuView/LoginMenuView.js";
 import registerMenuView from "./Views/RegisterMenuView/RegisterMenuView.js";
 import userProfileBlockView from "./Views/UserProfileBlockView/UserProfileBlockView.js";
 import MainMenuController from "./Controllers/MainMenuController.js";
+import MainMenuUnRegisterController from "./Controllers/MainMenuUnRegisterController.js";
 import AboutMenuController from "./Controllers/AboutMenuController.js";
 import LeaderboardController from "./Controllers/LeaderboardController.js";
 import GameModeMenuController from "./Controllers/GameModeMenuController.js";
@@ -19,6 +21,7 @@ import StartGameMenuSelector from "./Controllers/StartGameMenuSelector.js";
 import StandAloneController from "./Controllers/StandAloneController.js";
 import SingleplayerController from "./Controllers/SingleplayerController.js";
 import MultiplayerController from "./Controllers/MultiplayerController.js";
+import MainMenuSelector from "./Controllers/MainMenuSelector";
 
 class MenuManager extends Subscriber
 {
@@ -30,13 +33,14 @@ class MenuManager extends Subscriber
         super();
         this.menus =
             {
-                "/": new MainMenuController(mainMenuView),
+                "/": new MainMenuSelector(mainMenuView),
+                "/menuUnRegister": new MainMenuUnRegisterController(mainMenuUnRegisterView),
                 "/leaderboardMenu": new LeaderboardController(leaderboardView),
                 "/aboutMenu": new AboutMenuController(aboutMenuView),
                 // "/startGame": new StartGameMenuSelector(),
                 // "/selectMode": new GameModeMenuController(gameModeMenuView),
                 "/startGame/login": new LoginMenuController(loginMenuView),
-                // "/startGame/register": new RegisterMenuController(registerMenuView),
+                "/startGame/register": new RegisterMenuController(registerMenuView),
                 // "/startGame/offline": new StandAloneController(),
                 // "/startGame/online": new SingleplayerController(),
                 // "/startGame/multiplayer": new MultiplayerController(),

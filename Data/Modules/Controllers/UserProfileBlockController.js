@@ -73,12 +73,7 @@ class UserProfileBlockController extends BaseController
             .then((response) =>
             {
                 eventBus.emitEvent({type: "updateUser"});
-                BackMenu();
-                /*
-                let gameScene = new GameScene();
-                gameScene.hide();
                 eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-                */
             });
     }
 

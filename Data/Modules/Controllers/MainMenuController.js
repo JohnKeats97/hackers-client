@@ -3,6 +3,7 @@
 import BaseController from "./BaseController.js";
 import Button from "../Blocks/Button.js";
 import EventBus from "../EventBus.js";
+import Services from "../Services.js";
 
 const eventBus = new EventBus();
 
@@ -24,7 +25,16 @@ class MainMenuController extends BaseController
 
             item.addEventListener("click", () =>
             {
-                eventBus.emitEvent({type: "changeMenu", newMenuName: item.dataset.id});
+                if (item.dataset.id != "/logout") {
+                    eventBus.emitEvent({type: "changeMenu", newMenuName: item.dataset.id});
+                }
+                else {
+                    Services.logoutUser()
+                        .then((response) => {
+                            eventBus.emitEvent({type: "updateUser"});
+                            eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+                        });
+                }
             });
         });
 

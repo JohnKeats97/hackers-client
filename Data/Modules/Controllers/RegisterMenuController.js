@@ -14,14 +14,10 @@ class RegisterMenuController extends BaseController
     {
         super(view);
 
-        this.inputMail = new Input(null, document.registerForm.registerMailInput,
-            document.getElementById("registerMailError"));
-        this.inputNickname = new Input(null, document.registerForm.registerNicknameInput,
-            document.getElementById("registerNicknameError"));
-        this.inputPassword = new Input(null, document.registerForm.registerPasswordInput,
-            document.getElementById("registerPasswordError"));
-        this.inputRepeatPassword = new Input(null, document.registerForm.registerRepeatPasswordInput,
-            document.getElementById("registerRepeatPasswordError"));
+        this.inputMail = new Input(null, document.registerForm.registerMailInput);
+        this.inputNickname = new Input(null, document.registerForm.registerNicknameInput);
+        this.inputPassword = new Input(null, document.registerForm.registerPasswordInput);
+        this.inputRepeatPassword = new Input(null, document.registerForm.registerRepeatPasswordInput);
         document.registerForm.onsubmit = () => this.submitHandler();
         this.title = "Register";
         this.url = "/startGame/register";
@@ -30,7 +26,6 @@ class RegisterMenuController extends BaseController
     onShow()
     {
         this.clearInput();
-        this.clearErrorInput();
     }
 
     clearInput()
@@ -61,7 +56,7 @@ class RegisterMenuController extends BaseController
                 }.bind(password))
                 .catch(error =>
                 {
-                   new MessageBox("Register error", error.response);
+                   new MessageBox(error.response);
                 });
 
         return false;
@@ -69,8 +64,6 @@ class RegisterMenuController extends BaseController
 
     validate()
     {
-        this.clearErrorInput();
-
         let mail = this.inputMail.value;
         let nickname = this.inputNickname.value;
         let pwd = this.inputPassword.value;
@@ -79,35 +72,30 @@ class RegisterMenuController extends BaseController
 
         if(mail === "")
         {
-            this.inputMail.error = "Mail is required!";
-            bValid = false;
-        }
-        else if(!Services.isValidMail(mail))
-        {
-            this.inputMail.error = "Invalid mail!";
             bValid = false;
         }
 
         if(nickname === "")
         {
-            this.inputNickname.error = "Nickname is required!";
             bValid = false;
         }
         if(pwd === "")
         {
-            this.inputPassword.error = "Password is required!";
             bValid = false;
         }
         if(reppwd === "")
         {
-            this.inputRepeatPassword.error = "Repeat Password is required";
             bValid = false;
+        }
+
+        if(!bValid) {
+            new MessageBox("Заполните пустые поля");
         }
 
         if(pwd !== reppwd)
         {
-            this.inputRepeatPassword.error = "Repeat Password and Password are different!";
             bValid = false;
+            new MessageBox("Пароли должны совпадать");
         }
 
         return bValid;

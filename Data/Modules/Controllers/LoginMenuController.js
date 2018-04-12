@@ -61,9 +61,9 @@ class LoginMenuController extends BaseController
         }
 
         if(!bValid)
-            return false;
+            new MessageBox("Заполните пустые поля");
 
-        return true;
+        return bValid;
     }
 
 }

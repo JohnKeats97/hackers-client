@@ -1,7 +1,7 @@
 # Hackers Client
 
 
-Deploy: (http://???/) 
+Deploy: (https://hackers-contest.herokuapp.com/) 
 
 
 

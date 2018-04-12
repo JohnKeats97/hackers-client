@@ -1,7 +1,8 @@
 .aboutText
 {
-    font-weight: 600;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    font-style: normal;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -10,5 +11,6 @@
 
 .aboutLine
 {
-    font-size: 230%;
+    text-align: center;
+    font-size: 150%;
 }

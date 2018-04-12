@@ -1,7 +1,7 @@
 "use strict";
 
 import BaseView from "../BaseView/BaseView.js";
-let generateStartGameMenuView = require("../StartGameMenuView/StartGameMenuView.pug");
+let generateStartGameMenuView = require("../StartTestView/StartTestView.pug");
 
 const gameModeMenuView = new BaseView(document.getElementsByClassName("page")[0], generateStartGameMenuView,
     {

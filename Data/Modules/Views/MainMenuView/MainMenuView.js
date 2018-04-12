@@ -7,7 +7,7 @@ const mainMenu = new BaseView(document.getElementsByClassName("page")[0], genera
         title: "Меню",
         menus:
             [
-                {name: "Начать тест", id: "/startGame", class: "button"},
+                {name: "Начать тест", id: "/startTest", class: "button"},
                 {name: "Таблица лидеров", id: "/leaderboardMenu", class: "button button_secondary"},
                 {name: "О нас", id: "/aboutMenu", class: "button button_secondary"},
                 {name: "Выход", id: "/logout", class: "button button_secondary"},

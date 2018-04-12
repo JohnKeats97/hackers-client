@@ -1,19 +1,19 @@
 "use strict";
 
-import StartGameMenuController from "./StartGameMenuController.js";
-import startGameMenuView from "../Views/StartGameMenuView/StartGameMenuView.js";
+import StartTestController from "./StartTestController.js";
+import startGameMenuView from "../Views/StartTestView/StartTestView.js";
 import Services from "../Services.js";
 import MessageBox from "../Blocks/MessageBox/MessageBox.js";
 
 import EventBus from "../EventBus.js";
 
-class StartGameMenuSelector
+class StartTestSelector
 {
     constructor()
     {
-        this.startGameMenuController = new StartGameMenuController(startGameMenuView);
-        this.url = "/startGame";
-        this.title = "Start Game";
+        this.startGameMenuController = new StartTestController(startGameMenuView);
+        this.url = "/startTest";
+        this.title = "Start Test";
     }
 
     show()
@@ -21,12 +21,13 @@ class StartGameMenuSelector
         Services.getUser()
             .then(response =>
         {
-            if(response.status === 0)
-                this.startGameMenuController.show();
+            if(response.status === 0) {
+                let eventBus = new EventBus();
+                eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+            }
             else
             {
-                let eventBus = new EventBus();
-                eventBus.emitEvent({type: "changeMenu", newMenuName: "/selectMode"});
+                this.startGameMenuController.show();
             }
         })
             .catch(() =>
@@ -55,4 +56,4 @@ class StartGameMenuSelector
 
 }
 
-export default StartGameMenuSelector;
+export default StartTestSelector;

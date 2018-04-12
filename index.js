@@ -21,7 +21,7 @@ app.get("/", sendIndex);
 app.get("/menuUnRegister", sendIndex);
 app.get("/leaderboardMenu", sendIndex);
 app.get("/aboutMenu", sendIndex);
-app.get("/startGame", sendIndex);
+app.get("/startTest", sendIndex);
 app.get("/selectMode", sendIndex);
 app.get("/startGame/login", sendIndex);
 app.get("/startGame/register", sendIndex);

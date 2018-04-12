@@ -17,7 +17,7 @@ import GameModeMenuController from "./Controllers/GameModeMenuController.js";
 import LoginMenuController from "./Controllers/LoginMenuController.js";
 import RegisterMenuController from "./Controllers/RegisterMenuController.js";
 import UserProfileBlockController from "./Controllers/UserProfileBlockController.js";
-import StartGameMenuSelector from "./Controllers/StartGameMenuSelector.js";
+import StartTestSelector from "./Controllers/StartTestSelector.js";
 import StandAloneController from "./Controllers/StandAloneController.js";
 import SingleplayerController from "./Controllers/SingleplayerController.js";
 import MultiplayerController from "./Controllers/MultiplayerController.js";
@@ -37,7 +37,7 @@ class MenuManager extends Subscriber
                 "/menuUnRegister": new MainMenuUnRegisterController(mainMenuUnRegisterView),
                 "/leaderboardMenu": new LeaderboardController(leaderboardView),
                 "/aboutMenu": new AboutMenuController(aboutMenuView),
-                // "/startGame": new StartGameMenuSelector(),
+                "/startTest": new StartTestSelector(),
                 // "/selectMode": new GameModeMenuController(gameModeMenuView),
                 "/startGame/login": new LoginMenuController(loginMenuView),
                 "/startGame/register": new RegisterMenuController(registerMenuView),

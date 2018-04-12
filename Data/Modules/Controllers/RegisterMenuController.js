@@ -52,7 +52,7 @@ class RegisterMenuController extends BaseController
                 .then(function(response)
                 {
                     Services.checkUser(response.email, password).then(() => {eventBus.emitEvent({type: "updateUser"});});
-                    eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+                    setTimeout(eventBus.emitEvent({type: "changeMenu", newMenuName: "/"}), 1);
                 }.bind(password))
                 .catch(error =>
                 {

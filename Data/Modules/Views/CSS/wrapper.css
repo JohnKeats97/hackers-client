@@ -46,3 +46,8 @@
     width:30vw;
     align-items: center;
 }
+
+.wrapper_test {
+    min-width: 200px;
+    width: 80vw;
+}

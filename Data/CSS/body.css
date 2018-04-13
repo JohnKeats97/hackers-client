@@ -1,3 +1,7 @@
+body {
+    background-image: url("/Resources/Textures/hackers.jpg");
+}
+
 .body {
     height: 100vh;
     min-height: 330px;

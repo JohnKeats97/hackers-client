@@ -1,10 +1,11 @@
-div(class="wrapper")
+div(class="wrapper wrapper_test")
     div(class="wrapper__header")
         h2(class="header2") Введите ответ в поле и нажмите отправить
     div(class="wrapper__main")
         each menu in menus
-            form(name="TestForm")
-                div(class="") #{menu.name}
-                div(class="") #{menu.text}
-                input(class="" type="text")
-                input(type="submit" value="Отправить")
+            form(name="TestForm" class="testForm")
+                div(class="testForm__testName testForm__testName_text-center") #{menu.name}
+                div(class="testForm__testText") #{menu.text}
+                div(class="testForm__testAnswer")
+                    input(class="testForm__testInput" type="text")
+                    input(type="submit" class="testForm__testButton" value="Отправить")

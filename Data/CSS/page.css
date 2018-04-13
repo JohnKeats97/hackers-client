@@ -12,12 +12,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background-image: url("/Resources/Textures/hackers.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: bottom;
 }
-
 
 
 .page__header {

@@ -1,6 +1,8 @@
 .messageBox
 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    font-style: normal;
     border: 1px solid black;
     background-color: #fffef6;
     position: absolute;
@@ -25,6 +27,8 @@
     position: relative;
     top: 4px;
     width: 100px;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    font-style: normal;
     font-size: x-large;
 }

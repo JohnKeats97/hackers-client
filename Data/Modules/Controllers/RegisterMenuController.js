@@ -56,7 +56,8 @@ class RegisterMenuController extends BaseController
                 }.bind(password))
                 .catch(error =>
                 {
-                   new MessageBox(error.response);
+                    // new MessageBox(error.response);
+                    new MessageBox("User already exists!");
                 });
 
         return false;

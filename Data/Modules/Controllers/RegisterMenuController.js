@@ -51,8 +51,11 @@ class RegisterMenuController extends BaseController
             Services.registerUser(this.inputMail.value, this.inputNickname.value, this.inputPassword.value)
                 .then(function(response)
                 {
-                    Services.checkUser(response.email, password).then(() => {eventBus.emitEvent({type: "updateUser"});});
-                    setTimeout(eventBus.emitEvent({type: "changeMenu", newMenuName: "/"}), 500);
+                    Services.checkUser(response.email, password)
+                        .then(() => {
+                            eventBus.emitEvent({type: "updateUser"});
+                            eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+                        })
                 }.bind(password))
                 .catch(error =>
                 {

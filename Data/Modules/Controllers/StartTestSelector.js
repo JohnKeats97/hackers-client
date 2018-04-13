@@ -20,22 +20,22 @@ class StartTestSelector
     {
         Services.getUser()
             .then(response =>
-        {
-            if(response.status === 0) {
-                let eventBus = new EventBus();
-                eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-            }
-            else
-            {
-                this.startGameMenuController.show();
-            }
-        })
+                {
+                    if(response.status === 0) {
+                        let eventBus = new EventBus();
+                        eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+                    }
+                    else
+                    {
+                        this.startGameMenuController.show();
+                    }
+                })
             .catch(() =>
-        {
-            let eventBus = new EventBus();
-            eventBus.emitEvent({type: "changeMenu", newMenuName: "/startGame/offline"});
-            new MessageBox("Offline", "You have gone offline; Standalone game against bot");
-        });
+                {
+                    let eventBus = new EventBus();
+                    eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+                    new MessageBox("Offline", "You have gone offline;");
+                });
     }
 
     hide()

@@ -1,10 +1,10 @@
-div(class="") #{tests}
-
-//each test in tests
-//    form(name="TestForm")
-//        div(class="") #{test.name}
-//        div(class="") #{test.text}
-//        input(class="" type="text")
-//        input(type="submit" value="Отправить")
-//
-
+div(class="wrapper")
+    div(class="wrapper__header")
+        h2(class="header2") Введите ответ в поле и нажмите отправить
+    div(class="wrapper__main")
+        each menu in menus
+            form(name="TestForm")
+                div(class="") #{menu.name}
+                div(class="") #{menu.text}
+                input(class="" type="text")
+                input(type="submit" value="Отправить")

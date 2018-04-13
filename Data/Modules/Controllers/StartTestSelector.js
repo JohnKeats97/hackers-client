@@ -1,7 +1,7 @@
 "use strict";
 
 import StartTestController from "./StartTestController.js";
-import startGameMenuView from "../Views/StartTestView/StartTestView.js";
+import startTestView from "../Views/StartTestView/StartTestView.js";
 import Services from "../Services.js";
 import MessageBox from "../Blocks/MessageBox/MessageBox.js";
 
@@ -11,7 +11,7 @@ class StartTestSelector
 {
     constructor()
     {
-        this.startGameMenuController = new StartTestController(startGameMenuView);
+        this.startTestController = new StartTestController(startTestView);
         this.url = "/startTest";
         this.title = "Start Test";
     }
@@ -27,7 +27,7 @@ class StartTestSelector
                     }
                     else
                     {
-                        this.startGameMenuController.show();
+                        this.startTestController.show();
                     }
                 })
             .catch(() =>
@@ -40,7 +40,7 @@ class StartTestSelector
 
     hide()
     {
-        this.startGameMenuController.hide();
+        this.startTestController.hide();
         /*
         Services.getUser()
             .then(response =>

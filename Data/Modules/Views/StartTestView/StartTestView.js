@@ -2,22 +2,12 @@
 
 import BaseView from "../BaseView/BaseView.js";
 
-let generateStartGameMenuView = require("./StartTestView.pug");
+let generateStartTestView = require("./StartTestView.pug");
 
-const startGameMenuView = new BaseView(document.getElementsByClassName("page")[0], generateStartGameMenuView,
-    {title: "Start Test", tests: [
-        {
-            name: "Хеш-таблица",
-            text: "Реализуйте структуру данных типа “множество строк” на основе динамической хеш-таблицы с открытой адресацией. Хранимые строки непустые и состоят из строчных латинских букв."
-        },
-        {
-            name: "Хеш-таблица",
-            text: "Реализуйте структуру данных типа “множество строк” на основе динамической хеш-таблицы с открытой адресацией. Хранимые строки непустые и состоят из строчных латинских букв."
-        },
-        {
-            name: "Хеш-таблица",
-            text: "Реализуйте структуру данных типа “множество строк” на основе динамической хеш-таблицы с открытой адресацией. Хранимые строки непустые и состоят из строчных латинских букв."
-        }
-    ]});
+const startTestView = new BaseView(document.getElementsByClassName("page")[0], generateStartTestView,
+    {
+        title: "Меню",
+        menus: []
+    });
 
-export default startGameMenuView;
+export default startTestView;

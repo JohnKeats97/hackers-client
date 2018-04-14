@@ -2,6 +2,7 @@
 
 import Services from "../Services.js";
 import MessageBox from "../Blocks/MessageBox/MessageBox.js";
+import EventBus from "../EventBus.js";
 
 class StartTestController
 {
@@ -47,12 +48,20 @@ class StartTestController
         this.onHide();
     }
 
-    onHide(){}
+    onHide(){
+        this.view.changeData({title: "Start Test", menus: []});
+    }
 
     show()
     {
         this.view.show();
         this.onShow();
+    }
+
+    goBackHandler()
+    {
+        let eventBus = new EventBus();
+        eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
     }
 
 }

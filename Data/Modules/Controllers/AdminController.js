@@ -2,6 +2,7 @@
 
 import Services from "../Services.js";
 import MessageBox from "../Blocks/MessageBox/MessageBox.js";
+import EventBus from "../EventBus.js";
 
 class AdminController
 {
@@ -47,7 +48,9 @@ class AdminController
         this.onHide();
     }
 
-    onHide(){}
+    onHide(){
+        this.view.changeData({title: "Start Test", menus: []});
+    }
 
     show()
     {
@@ -57,6 +60,7 @@ class AdminController
 
     goBackHandler()
     {
+        let eventBus = new EventBus();
         eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
     }
 }

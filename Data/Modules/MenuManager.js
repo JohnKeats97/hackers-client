@@ -5,7 +5,6 @@ import mainMenuView from "./Views/MainMenuView/MainMenuView.js";
 import mainMenuUnRegisterView from "./Views/MainMemuViewUnRegister/MainMenuViewUnRegister"
 import aboutMenuView from "./Views/AboutMenuView/AboutMenuView.js";
 import leaderboardView from "./Views/LeaderboardView/LeaderboardView.js";
-import gameModeMenuView from "./Views/GameModeMenuView/GameModeMenuView.js";
 import loginMenuView from "./Views/LoginMenuView/LoginMenuView.js";
 import registerMenuView from "./Views/RegisterMenuView/RegisterMenuView.js";
 import userProfileBlockView from "./Views/UserProfileBlockView/UserProfileBlockView.js";
@@ -40,7 +39,6 @@ class MenuManager extends Subscriber
                 "/aboutMenu": new AboutMenuController(aboutMenuView),
                 "/startTest": new StartTestSelector(),
                 "/admin": new AdminSelector(),
-                // "/selectMode": new GameModeMenuController(gameModeMenuView),
                 "/startGame/login": new LoginMenuController(loginMenuView),
                 "/startGame/register": new RegisterMenuController(registerMenuView),
                 // "/startGame/offline": new StandAloneController(),

@@ -54,7 +54,7 @@ class StartTestController
         this.view.show();
         this.onShow();
     }
-    
+
 }
 
 export default StartTestController;

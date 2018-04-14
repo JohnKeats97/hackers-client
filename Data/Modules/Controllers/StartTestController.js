@@ -54,11 +54,7 @@ class StartTestController
         this.view.show();
         this.onShow();
     }
-
-    goBackHandler()
-    {
-        eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-    }
+    
 }
 
 export default StartTestController;

@@ -9,6 +9,11 @@ import Http from "./Http/http.js";
 
 class Services
 {
+    static getAdmin()
+    {
+        return Http.FetchGet("/admin");
+    }
+
     static getTest()
     {
         return Http.FetchGet("/test");

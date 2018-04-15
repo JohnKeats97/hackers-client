@@ -47,6 +47,11 @@ class Services
         return Http.FetchPost("/users", {"login": nickname, "email": mail, "password": pwd});
     }
 
+    static checkTest(id, answer)
+    {
+        return Http.FetchPost("/test-answer", {"id": id, "answer": answer});
+    }
+
     static getUser()
     {
         return Http.FetchGet("/info");

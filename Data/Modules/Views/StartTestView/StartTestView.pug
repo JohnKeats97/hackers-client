@@ -3,9 +3,9 @@ div(class="wrapper wrapper_test")
         h2(class="header2") Введите ответ в поле и нажмите отправить
     div(class="wrapper__main")
         each menu in menus
-            form(name="TestForm" class="testForm")
+            div(class="testForm")
                 div(class="testForm__testName testForm__testName_text-center") #{menu.name}
                 div(class="testForm__testText") #{menu.text}
                 div(class="testForm__testAnswer")
-                    input(class="testForm__testInput" type="text")
-                    input(type="submit" class="testForm__testButton" value="Отправить")
+                    input(class="testForm__testInput" id=menu.id type="text")
+                    button(class="testForm__testButton" data-id=menu.id) Отправить

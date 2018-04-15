@@ -3,14 +3,14 @@ div(class="wrapper wrapper_test")
         h2(class="header2") Панель Адиминистратора
     div(class="wrapper__main")
         each menu in menus
-            form(name="TestForm" class="adminForm")
+            div(class="adminForm" id=menu.id)
                 input(class="adminForm__testName" type="text" value=menu.name)
                 textarea(class="adminForm__testText") #{menu.text}
                 div(class="adminForm__testAdminButton")
-                    input(type="submit" class="adminForm__button" value="Изменить")
-                    button(class="adminForm__button") Удалить
+                    button(class="adminForm__button adminForm__button-change" data-id=menu.id) Изменить
+                    button(class="adminForm__button adminForm__button-delete" data-id=menu.id) Удалить
 
-        form(name="TestForm" class="adminForm")
-            input(class="adminForm__testName" type="text" value="")
-            textarea(class="adminForm__testText")
-            input(type="submit" class="button-AddTest" value="Добавить")
+        div(class="adminForm")
+            input(class="adminForm__testName name-AddTest" type="text" value="")
+            textarea(class="adminForm__testText text-AddTest")
+            button(class="button-AddTest") Добавить

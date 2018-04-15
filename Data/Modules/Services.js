@@ -49,7 +49,22 @@ class Services
 
     static checkTest(id, answer)
     {
-        return Http.FetchPost("/test-answer", {"id": id, "answer": answer});
+        return Http.FetchPost("/test", {"id": id, "answer": answer});
+    }
+
+    static addTestAdmin(name, text)
+    {
+        return Http.FetchPost("/add-test", {"name": name, "tet": text});
+    }
+
+    static deleteTestAdmin(id)
+    {
+        return Http.FetchPost("/delete-test", {"id": id});
+    }
+
+    static changeTestAdmin(id, name, text)
+    {
+        return Http.FetchPost("/change-test", {"id": id, "name": name, "tet": text});
     }
 
     static getUser()

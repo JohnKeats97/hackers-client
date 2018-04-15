@@ -42,8 +42,8 @@ class StartTestController
                 ]});
 
 
-        let a = document.querySelectorAll(".testForm__testButton");
-        a.forEach((item) =>
+        let testButtons = document.querySelectorAll(".testForm__testButton");
+        testButtons.forEach((item) =>
         {
             item.addEventListener('click', ()=>{
                 let id = item.dataset.id;
@@ -51,18 +51,18 @@ class StartTestController
                 let value = input.value;
                 if (value.toString().trim()) {
                     value = value.toString().trim();
-                    // Services.checkTest(id, value)
-                    //     .then((responce) => {
-                    //         if (responce.answer) {
-                    //             alert("Верно");
-                    //         }
-                    //         else {
-                    //             alert("Неверно");
-                    //         }
-                    //     })
-                    //     .catch(error => {
-                    //         new MessageBox("Test Error", "Невозможно проверить задание");
-                    //     });
+                    Services.checkTest(id, value)
+                        .then((result) => {
+                            if (result.answer) {
+                                alert("Верно");
+                            }
+                            else {
+                                alert("Неверно");
+                            }
+                        })
+                        .catch(error => {
+                            new MessageBox("Test Error", "Невозможно проверить задание");
+                        });
                 }
             });
         });

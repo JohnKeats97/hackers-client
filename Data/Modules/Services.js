@@ -9,9 +9,9 @@ import Http from "./Http/http.js";
 
 class Services
 {
-    static getAdmin()
+    static getTestAdmin()
     {
-        return Http.FetchGet("/admin");
+        return Http.FetchGet("/test-admin");
     }
 
     static getTest()
@@ -52,9 +52,9 @@ class Services
         return Http.FetchPost("/test", {"id": id, "answer": answer});
     }
 
-    static addTestAdmin(name, text)
+    static addTestAdmin(name, text, answer)
     {
-        return Http.FetchPost("/add-test", {"name": name, "tet": text});
+        return Http.FetchPost("/add-test", {"name": name, "text": text, "answer":answer});
     }
 
     static deleteTestAdmin(id)

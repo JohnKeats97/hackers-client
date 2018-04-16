@@ -27,7 +27,8 @@ class StartTestSelector
                     }
                     else
                     {
-                        this.startTestController.show();
+                        // this.startTestController.show(response.tests);
+                        this.startTestController.show([1, 3]);
                     }
                 })
             .catch(() =>

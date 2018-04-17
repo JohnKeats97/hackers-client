@@ -18,25 +18,25 @@ class StartTestSelector
 
     show()
     {
-        Services.getUser()
-            .then(response =>
-                {
-                    if(response.status === 0) {
-                        let eventBus = new EventBus();
-                        eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-                    }
-                    else
-                    {
+        // Services.getUser()
+        //     .then(response =>
+        //         {
+        //             if(response.status === 0) {
+        //                 let eventBus = new EventBus();
+        //                 eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+        //             }
+        //             else
+        //             {
                         // this.startTestController.show(response.tests);
                         this.startTestController.show([1, 3]);
-                    }
-                })
-            .catch(() =>
-                {
-                    let eventBus = new EventBus();
-                    eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-                    new MessageBox("Offline", "You have gone offline;");
-                });
+                    // }
+            //     })
+            // .catch(() =>
+            //     {
+            //         let eventBus = new EventBus();
+            //         eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+            //         new MessageBox("Offline", "You have gone offline;");
+            //     });
     }
 
     hide()

@@ -7,7 +7,7 @@
 }
 
 .page {
-    color: white;
+    color: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +20,7 @@
 
 .page__header {
     height: 5vh;
-    font-size: 7vh;
+    font-size: 10vh;
     position: static;
     padding-top: 3vh;
     text-align: center;

@@ -1,7 +1,11 @@
 .header2 {
     user-select: none;
-    font-size: 5vh;
-    padding-top: 25vh;
+    font-size: 7vh;
+    padding-top: 23vh;
     text-align: center;
     outline: none;
+}
+
+.header2-register {
+    padding-top: 16vh;
 }

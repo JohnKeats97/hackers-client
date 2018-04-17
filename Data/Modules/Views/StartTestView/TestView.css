@@ -3,8 +3,7 @@
 }
 
 .testForm__testName {
-    padding-top: 6vh;
-    font-size: 3.7vh;
+    font-size: 5vh;
 }
 
 .testForm__testText {
@@ -13,27 +12,55 @@
 }
 
 .testForm__testAnswer {
+    text-align: center;
     padding-top: 2vh;
-    padding-left: 3vw;
     color: #0ACF00;
     font-size: 20px;
 }
 
 .testForm__testButton {
-    margin-left: 4vw;
+    color: white;
+    border-radius: 20px;
+    margin-left: 3vw;
     border: none;
     height: 35px;
     font-size: 15px;
     cursor: pointer;
     outline: none;
-    width: 20vw;
+    width: 145px;
+    background-color: #3aaacf;
+}
+
+
+.testForm__testButton:hover {
+    background-color: #3195B6;
 }
 
 
 .testForm__testInput {
+    /*background: #A6C6DF;*/
+    box-shadow: 0 1px 0 0 #008295, 0 0 0 1px #008295;
     border: none;
     height: 32px;
     font-size: 17px;
     width: 40%;
     padding-left: 5px;
 }
+
+.allTestForm {
+    padding-top: 15vh;
+}
+
+.space {
+    padding-top: 6vh;
+}
+
+.testForm {
+    box-shadow: 0 2px 0 0 #366284, 0 0 0 2px #366284;
+    border-radius: 10px;
+    color: #000;
+    margin: 15px 0 0;
+    background: #CFDBE5;
+    padding: 8px 20px 19px;
+}
+

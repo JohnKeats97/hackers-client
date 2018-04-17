@@ -17,27 +17,52 @@ class LeaderboardController extends BaseController
     onShow()
     {
         this.view.changeData({title: "Leaderboard", players: []});
-        Services.getLeaders()
-            .then(result =>
-            {
-                let highlight = 10;
-
-                if(result[result.length - 1] && result[result.length - 1].position <= 10)
+        Services.getUser()
+            .then(response =>
                 {
-                    highlight = result[result.length - 1].position - 1;
-                    result.pop();
-                }
+                    if(response.status === 0) {
+                        Services.getLeaders()
+                            .then(result =>
+                            {
+                                let highlight = 10;
 
-                this.deleteBackButton();
-                this.view.changeData({title: "Leaderboard", players: result, highlightIndex: highlight});
-                this.createBackButton();
-            })
-            .catch(() =>
-            {
-                this.deleteBackButton();
-                new MessageBox("Network error", "Can't get leaderboard info");
-                this.createBackButton();
+                                this.deleteBackButton();
+                                this.view.changeData({title: "Leaderboard", players: result, highlightIndex: highlight});
+                                this.createBackButton();
+                            })
+                            .catch(() =>
+                            {
+                                this.deleteBackButton();
+                                new MessageBox("Network error", "Can't get leaderboard info");
+                                this.createBackButton();
+                            });
+                    }
+                    else
+                    {
+                        Services.getLeaders()
+                            .then(result =>
+                            {
+                                let highlight = 10;
+
+                                if(result[result.length - 1] && result[result.length - 1].position <= 10)
+                                {
+                                    highlight = result[result.length - 1].position - 1;
+                                    result.pop();
+                                }
+
+                                this.deleteBackButton();
+                                this.view.changeData({title: "Leaderboard", players: result, highlightIndex: highlight});
+                                this.createBackButton();
+                            })
+                            .catch(() =>
+                            {
+                                this.deleteBackButton();
+                                new MessageBox("Network error", "Can't get leaderboard info");
+                                this.createBackButton();
+                            });
+                    }
             });
+
     }
 }
 

@@ -19,8 +19,14 @@
 
 .submitButton
 {
-    height: 41px;
-    width: 15vw;
+    height: 50px;
+    width: 16vw;
+}
+
+.submitButton-login
+{
+    height: 50px;
+    width: 12vw;
 }
 
 .alignCenter

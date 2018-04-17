@@ -1,14 +1,14 @@
 .button {
-    height: 44px;
-    font-size: 15px;
+    height: 66px;
+    font-size: 24px;
     padding: 0 16px;
     border: none;
     border-radius: 100px;
-    background-color: #5D6DBB;
+    background-color: #008295;
     color: #FFFFFF;
     cursor: pointer;
     outline: none;
-    width: 34vw;
+    width: 22vw;
     min-width: 160px;
     margin-bottom: 10px;
     margin-right: 5px;
@@ -20,7 +20,7 @@
 
 
 .button:hover {
-    background-color: #5665A8;
+    background-color: #007C8D;
 }
 
 .button_disabled {

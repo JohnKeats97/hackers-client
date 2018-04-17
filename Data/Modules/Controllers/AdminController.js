@@ -17,19 +17,21 @@ class AdminController
     onShow()
     {
         this.view.changeData({title: "Admin", menus: []});
-        Services.getTest()
+        Services.getTestAdmin()
             .then(result =>
             {
                 result = result.reverse();
                 this.view.changeData({title: "Admin", menus: result});
+
                 let addButton = document.querySelectorAll(".button-AddTest")[0];
                 addButton.addEventListener('click', ()=>{
                     let name = document.querySelectorAll(".name-AddTest")[0];
                     let text = document.querySelectorAll(".text-AddTest")[0];
+                    let answer = document.querySelectorAll(".answer-AddTest")[0];
                     name = name.value.toString().trim();
                     text = text.value.toString().trim();
-                    let answer = "0";
-                    if (name && text) {
+                    answer = answer.value.toString().trim();
+                    if (name && text && answer) {
                         Services.addTestAdmin(name, text, answer)
                             .then(() => {
                                 let eventBus = new EventBus();
@@ -39,6 +41,51 @@ class AdminController
                                 new MessageBox("Add Error", "Невозможно добавить задание");
                             });
                     }
+                });
+
+                let deleteButtons = document.querySelectorAll(".adminForm__button-delete");
+                deleteButtons.forEach((item) =>
+                {
+                    item.addEventListener('click', ()=>{
+                        let id = item.dataset.id;
+                        let test = document.getElementById(id);
+                        if (test) {
+                            Services.deleteTestAdmin(id)
+                                .then((result) => {
+                                    test.remove();
+                                })
+                                .catch(error => {
+                                    new MessageBox("Delete Error", "Невозможно удалить задание");
+                                });
+                        }
+
+                    });
+                });
+
+                let changeButtons = document.querySelectorAll(".adminForm__button-change");
+                changeButtons.forEach((item) =>
+                {
+                    item.addEventListener('click', ()=>{
+                        let id = item.dataset.id;
+                        let test = document.getElementById(id);
+                        if (test) {
+                            let name = test.childNodes[0].value;
+                            let text = test.childNodes[1].value;
+                            let answer = test.childNodes[2].value;
+                            name = name.toString().trim();
+                            text = text.toString().trim();
+                            answer = answer.toString().trim();
+                            if (name && text && answer) {
+                                Services.changeTestAdmin(id, name, text, answer)
+                                    .then((result) => {
+                                        new MessageBox("Изменения сохранены");
+                                    })
+                                    .catch(error => {
+                                        new MessageBox("Delete Error", "Невозможно изменить задание");
+                                    });
+                            }
+                        }
+                    });
                 });
             })
             .catch(() =>

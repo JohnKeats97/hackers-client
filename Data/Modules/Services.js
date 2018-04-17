@@ -62,9 +62,9 @@ class Services
         return Http.FetchPost("/delete-test", {"id": id});
     }
 
-    static changeTestAdmin(id, name, text)
+    static changeTestAdmin(id, name, text, answer)
     {
-        return Http.FetchPost("/change-test", {"id": id, "name": name, "tet": text});
+        return Http.FetchPost("/change-test", {"id": id, "name": name, "text": text, "answer":answer});
     }
 
     static getUser()

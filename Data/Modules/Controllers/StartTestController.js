@@ -24,6 +24,37 @@ class StartTestController
             {
                 result = result.reverse();
                 this.view.changeData({title: "Start Test", menus: result});
+
+                let testButtons = document.querySelectorAll(".testForm__testButton");
+                testButtons.forEach((item) =>
+                {
+                    let id = +item.dataset.id;
+                    if (this.userTest.indexOf(id) < 0) {
+                        item.addEventListener('click', ()=>{
+                            let input = document.getElementById(id);
+                            let value = input.value;
+                            if (value.toString().trim()) {
+                                value = value.toString().trim();
+                                Services.checkTest(id, value)
+                                    .then((result) => {
+                                        if (result.answer) {
+                                            alert("Верно");
+                                        }
+                                        else {
+                                            alert("Неверно");
+                                        }
+                                    })
+                                    .catch(error => {
+                                        new MessageBox("Test Error", "Невозможно проверить задание");
+                                    });
+                            }
+                        });
+                    }
+                    else {
+                        let parent = item.parentNode;
+                        parent.innerHTML = "Вы уже выполнили это задание";
+                    }
+                });
             })
             .catch(() =>
             {

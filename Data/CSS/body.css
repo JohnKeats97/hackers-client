@@ -1,5 +1,6 @@
 body {
     background-image: url("/Resources/Textures/hackers.jpg");
+    background-attachment: fixed;
     /*background: #edeef0;  #CFDBE5*/
 }
 

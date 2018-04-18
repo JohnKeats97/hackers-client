@@ -3,6 +3,7 @@
 import Services from "../Services.js";
 import MessageBox from "../Blocks/MessageBox/MessageBox.js";
 import EventBus from "../EventBus.js";
+import Loader from "../Views/LoaderView/LoaderView.js";
 
 class StartTestController
 {
@@ -18,10 +19,12 @@ class StartTestController
 
     onShow()
     {
-        this.view.changeData({title: "Start Test", menus: []});
+        let loader = new Loader();
+        // this.view.changeData({title: "Start Test", menus: []});
         // Services.getTest()
         //     .then(result =>
         //     {
+        //         loader.hide();
         //         result = result.reverse();
         //         this.view.changeData({title: "Start Test", menus: result});
         //
@@ -58,9 +61,10 @@ class StartTestController
         //     })
         //     .catch(() =>
         //     {
+        //         loader.hide();
         //         new MessageBox("Network error", "Can't get test");
         //     });
-
+        loader.hide();
         this.view.changeData({title: "Меню",
             menus:
                 [
@@ -76,36 +80,36 @@ class StartTestController
                 ]});
 
 
-        // let testButtons = document.querySelectorAll(".testForm__testButton");
-        // testButtons.forEach((item) =>
-        // {
-        //     let id = +item.dataset.id;
-        //     if (this.userTest.indexOf(id) < 0) {
-        //         item.addEventListener('click', ()=>{
-        //             let input = document.getElementById(id);
-        //             let value = input.value;
-        //             if (value.toString().trim()) {
-        //                 value = value.toString().trim();
-        //                 Services.checkTest(id, value)
-        //                     .then((result) => {
-        //                         if (result.answer) {
-        //                             alert("Верно");
-        //                         }
-        //                         else {
-        //                             alert("Неверно");
-        //                         }
-        //                     })
-        //                     .catch(error => {
-        //                         new MessageBox("Test Error", "Невозможно проверить задание");
-        //                     });
-        //             }
-        //         });
-        //     }
-        //     else {
-        //         let parent = item.parentNode;
-        //         parent.innerHTML = "Вы уже выполнили это задание";
-        //     }
-        // });
+        let testButtons = document.querySelectorAll(".testForm__testButton");
+        testButtons.forEach((item) =>
+        {
+            let id = +item.dataset.id;
+            if (this.userTest.indexOf(id) < 0) {
+                item.addEventListener('click', ()=>{
+                    let input = document.getElementById(id);
+                    let value = input.value;
+                    if (value.toString().trim()) {
+                        value = value.toString().trim();
+                        Services.checkTest(id, value)
+                            .then((result) => {
+                                if (result.answer) {
+                                    alert("Верно");
+                                }
+                                else {
+                                    alert("Неверно");
+                                }
+                            })
+                            .catch(error => {
+                                new MessageBox("Test Error", "Невозможно проверить задание");
+                            });
+                    }
+                });
+            }
+            else {
+                let parent = item.parentNode;
+                parent.innerHTML = "Вы уже выполнили это задание";
+            }
+        });
     }
 
 

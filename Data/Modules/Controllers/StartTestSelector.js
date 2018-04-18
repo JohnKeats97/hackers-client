@@ -19,6 +19,7 @@ class StartTestSelector
 
     show()
     {
+        debugger;
         let loader = new Loader();
         loader.show();
         // Services.getUser()
@@ -31,10 +32,9 @@ class StartTestSelector
         //             }
         //             else
         //             {
-                        // this.startTestController.show(response.tests);
-                        // loader.hide();
+        //                 this.startTestController.show(response.tests);
                         this.startTestController.show([1, 3]);
-                    // }
+            //         }
             //     })
             // .catch(() =>
             //     {

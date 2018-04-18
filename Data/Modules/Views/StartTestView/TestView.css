@@ -59,8 +59,10 @@
     box-shadow: 0 2px 0 0 #008295, 0 0 0 2px #008295;
     border-radius: 10px;
     color: #000;
-    margin: 15px 0 0;
-    background: #CFDBE5;
+    margin-top: 15px;
+    margin: auto;
+    background: #cfdbe5;
     padding: 8px 20px 19px;
+    width: 60vw;
 }
 

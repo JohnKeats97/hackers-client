@@ -35,9 +35,11 @@ class LoginMenuController extends BaseController
         if (this.validate()) {
             let loader = new Loader();
             loader.show();
+            debugger;
             Services.checkUser(this.inputMail.value, this.inputPassword.value)
                 .then(() => {
                     loader.hide();
+                    debugger;
                     eventBus.emitEvent({type: "updateUser"});
                     eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
                 })

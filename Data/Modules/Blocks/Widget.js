@@ -29,9 +29,13 @@ class Widget
     // Appearance
     show()
     {
-        for(var i = 0; i < this.element.childNodes.length; i++)
-            if(this.element.childNodes[i].nodeType === Node.ELEMENT_NODE)
+        for(let i = 0; i < this.element.childNodes.length; i++) {
+            if(this.element.childNodes[i].nodeType === Node.ELEMENT_NODE) {
+                this.element.childNodes[i].style.opacity = "1";
                 this.element.childNodes[i].style.visibility = "visible";
+            }
+        }
+        this.element.style.opacity = "1";
         this.element.style.visibility = "visible";
 
         this.onShow();
@@ -39,9 +43,14 @@ class Widget
 
     hide()
     {
-        for(let i = 0; i < this.element.childNodes.length; i++)
-            if(this.element.childNodes[i].nodeType === Node.ELEMENT_NODE)
+        for(let i = 0; i < this.element.childNodes.length; i++) {
+            if(this.element.childNodes[i].nodeType === Node.ELEMENT_NODE) {
+                this.element.childNodes[i].style.opacity = "0";
                 this.element.childNodes[i].style.visibility = "hidden";
+            }
+        }
+
+        this.element.style.opacity = "0";
         this.element.style.visibility = "hidden";
 
         this.onHide();

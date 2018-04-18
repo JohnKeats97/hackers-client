@@ -63,7 +63,7 @@ class LeaderboardController extends BaseController
     }
 
     onHide(){
-        this.view.changeData({title: "Leaderboard", players: []});
+        this.view.changeData({title: "0", players: []});
     }
 }
 

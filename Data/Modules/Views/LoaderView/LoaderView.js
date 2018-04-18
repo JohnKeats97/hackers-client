@@ -15,7 +15,9 @@ export default class LoaderView {
     hide() {
         let elem = document.getElementsByClassName("launcher");
         if (elem[0]) {
-            document.body.removeChild(elem[0]);
+            elem.forEach((el) => {
+                document.body.removeChild(el);
+            });
         }
         elem = null;
     }

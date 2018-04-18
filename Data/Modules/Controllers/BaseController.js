@@ -2,6 +2,7 @@
 
 import Button from "../Blocks/Button.js";
 import EventBus from "../EventBus.js";
+import Loader from "../Views/LoaderView/LoaderView.js";
 
 const eventBus = new EventBus();
 
@@ -23,12 +24,17 @@ class BaseController
     {
         this.view.hide();
         this.onHide();
+        let loader = new Loader();
+        loader.hide();
     }
 
     show()
     {
-        this.view.show();
+        let loader = new Loader();
+        loader.show();
         this.onShow();
+        loader.hide();
+        this.view.show();
     }
 
     onShow(){}

@@ -22,27 +22,27 @@ class StartTestSelector
         debugger;
         let loader = new Loader();
         loader.show();
-        // Services.getUser()
-        //     .then(response =>
-        //         {
-        //             if(response.status === 0) {
-        //                 let eventBus = new EventBus();
-        //                 loader.hide();
-        //                 eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-        //             }
-        //             else
-        //             {
-        //                 this.startTestController.show(response.tests);
-                        this.startTestController.show([1, 3]);
-            //         }
-            //     })
-            // .catch(() =>
-            //     {
-            //         let eventBus = new EventBus();
-            //         loader.hide();
-            //         eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-            //         new MessageBox("Offline", "You have gone offline;");
-            //     });
+        Services.getUser()
+            .then(response =>
+                {
+                    if(response.status === 0) {
+                        let eventBus = new EventBus();
+                        loader.hide();
+                        eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+                    }
+                    else
+                    {
+                        this.startTestController.show(response.tests);
+                        // this.startTestController.show([1, 3]);
+                    }
+                })
+            .catch(() =>
+                {
+                    let eventBus = new EventBus();
+                    loader.hide();
+                    eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+                    new MessageBox("Offline", "You have gone offline;");
+                });
     }
 
     hide()

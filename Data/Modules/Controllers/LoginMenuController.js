@@ -5,6 +5,7 @@ import Input from "../Blocks/Input/Input.js";
 import Services from "../Services.js";
 import EventBus from "../EventBus.js";
 import MessageBox from "../Blocks/MessageBox/MessageBox.js";
+import Loader from "../Views/LoaderView/LoaderView.js";
 
 const eventBus = new EventBus();
 
@@ -32,13 +33,17 @@ class LoginMenuController extends BaseController
     submitHandler()
     {
         if (this.validate()) {
+            let loader = new Loader();
+            loader.show();
             Services.checkUser(this.inputMail.value, this.inputPassword.value)
                 .then(() => {
+                    loader.hide();
                     eventBus.emitEvent({type: "updateUser"});
                     eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
                 })
                 .catch(error => {
-                    new MessageBox("Login Error", error.response);
+                    loader.hide();
+                    new MessageBox("Ошибка входа");
                 });
         }
 

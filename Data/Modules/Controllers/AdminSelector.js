@@ -21,33 +21,35 @@ class AdminSelector
     {
         let loader = new Loader();
         loader.show();
-        Services.getUser()
-            .then(response =>
-                {
-                    if(response.status === 0) {
-                        let eventBus = new EventBus();
-                        loader.hide();
-                        eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-                    }
-                    else
-                    {
-                        if(response.email == "admin_mail@mail.ru" && response.login == "admin_mail") {
-                            loader.hide();
-                            this.adminController.show();
-                        }
-                        else {
-                            let eventBus = new EventBus();
-                            eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-                        }
-                    }
-                })
-            .catch(() =>
-                {
-                    let eventBus = new EventBus();
-                    loader.hide();
-                    eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-                    new MessageBox("Offline", "You have gone offline;");
-                });
+        loader.hide();
+        this.adminController.show();
+        // Services.getUser()
+        //     .then(response =>
+        //         {
+        //             if(response.status === 0) {
+        //                 let eventBus = new EventBus();
+        //                 loader.hide();
+        //                 eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+        //             }
+        //             else
+        //             {
+        //                 if(response.email == "admin_mail@mail.ru" && response.login == "admin_mail") {
+        //                     loader.hide();
+        //                     this.adminController.show();
+        //                 }
+        //                 else {
+        //                     let eventBus = new EventBus();
+        //                     eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+        //                 }
+        //             }
+        //         })
+        //     .catch(() =>
+        //         {
+        //             let eventBus = new EventBus();
+        //             loader.hide();
+        //             eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+        //             new MessageBox("Offline", "You have gone offline;");
+        //         });
     }
 
     hide()

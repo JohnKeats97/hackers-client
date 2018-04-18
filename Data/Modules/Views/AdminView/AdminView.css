@@ -1,3 +1,7 @@
+.adminForm {
+    width: 60vw;
+    margin: auto;
+}
 
 .adminForm__testName {
     border: none;
@@ -27,26 +31,29 @@
 
 .adminForm__testAdminButton {
     margin-top: 2vh;
+    text-align: center;
 }
 
 .adminForm__button {
     border: none;
-    margin-left: 4vw;
     height: 44px;
     font-size: 17px;
     cursor: pointer;
     outline: none;
-    width: 34vw;
+    width: 20vw;
+}
+
+.adminForm__button-delete {
+    margin-left: 4vw;
 }
 
 .button-AddTest {
-    margin-left: 4vw;
     margin-top: 2vh;
     border: none;
     height: 44px;
     font-size: 17px;
     cursor: pointer;
     outline: none;
-    width: 34vw;
+    width: 20vw;
 }
 

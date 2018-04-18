@@ -5,6 +5,7 @@ import Input from "../Blocks/Input/Input.js";
 import Services from "../Services.js";
 import EventBus from "../EventBus.js";
 import MessageBox from "../Blocks/MessageBox/MessageBox.js";
+import Loader from "../Views/LoaderView/LoaderView.js";
 
 const eventBus = new EventBus();
 
@@ -47,21 +48,27 @@ class RegisterMenuController extends BaseController
     submitHandler()
     {
         let password = this.inputPassword.value; // Костыль, чтобы передать потом для логина
-        if(this.validate())
+        if(this.validate()) {
+            let loader = new Loader();
+            loader.show();
             Services.registerUser(this.inputMail.value, this.inputNickname.value, this.inputPassword.value)
                 .then(function(response)
                 {
                     Services.checkUser(response.email, password)
                         .then(() => {
+                            loader.hide();
                             eventBus.emitEvent({type: "updateUser"});
                             eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
                         })
-                }.bind(password))
+                }.bind(password, loader))
                 .catch(error =>
                 {
+                    loader.hide();
                     // new MessageBox(error.response);
-                    new MessageBox("User already exists!");
+                    new MessageBox("Этот пользователь уже зарегестрирован");
                 });
+        }
+
 
         return false;
     }

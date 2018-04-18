@@ -2,17 +2,18 @@ div(class="wrapper wrapper_test")
     div(class="wrapper__header")
         h2(class="header2") Панель Администратора
     div(class="wrapper__main")
+        div(class="adminForm")
+            input(class="adminForm__testName name-AddTest" type="text" value="" placeholder="Название")
+            textarea(class="adminForm__testText text-AddTest" placeholder="Текст вопроса")
+            input(class="adminForm__testAnswer answer-AddTest" type="text" value="" placeholder="Ответ")
+            button(class="button-AddTest") Добавить
+
         each menu in menus
             div(class="adminForm" id=menu.id)
-                input(class="adminForm__testName" type="text" value=menu.name)
-                textarea(class="adminForm__testText") #{menu.text}
-                input(class="adminForm__testAnswer" type="text" value=menu.answer)
+                input(class="adminForm__testName" type="text" value=menu.name placeholder = "Название")
+                textarea(class="adminForm__testText" placeholder="Текст вопроса") #{menu.text}
+                input(class="adminForm__testAnswer" type="text" value=menu.answer placeholder="Ответ")
                 div(class="adminForm__testAdminButton")
                     button(class="adminForm__button adminForm__button-change" data-id=menu.id) Изменить
                     button(class="adminForm__button adminForm__button-delete" data-id=menu.id) Удалить
 
-        div(class="adminForm")
-            input(class="adminForm__testName name-AddTest" type="text" value="")
-            textarea(class="adminForm__testText text-AddTest")
-            input(class="adminForm__testAnswer answer-AddTest" type="text" value="")
-            button(class="button-AddTest") Добавить

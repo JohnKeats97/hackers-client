@@ -20,8 +20,6 @@ class LoginMenuController extends BaseController
         document.loginForm.onsubmit = () => this.submitHandler();
         this.title = "Login";
         this.url = "/startGame/login";
-
-
     }
 
     onShow()
@@ -39,7 +37,6 @@ class LoginMenuController extends BaseController
             Services.checkUser(this.inputMail.value, this.inputPassword.value)
                 .then(() => {
                     loader.hide();
-                    debugger;
                     eventBus.emitEvent({type: "updateUser"});
                     eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
                 })

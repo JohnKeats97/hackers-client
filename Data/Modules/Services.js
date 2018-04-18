@@ -39,6 +39,7 @@ class Services
 
     static checkUser(mail, pwd)
     {
+        debugger;
         return Http.FetchPost("/login", {"loginEmail": mail, "password": pwd});
     }
 

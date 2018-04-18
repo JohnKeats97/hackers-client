@@ -10,14 +10,12 @@ export default class LoaderView {
                          "<div id=\"loader\"></div>" +
                          "</div>";
         loader.element.innerHTML = loaderHTML;
-        debugger;
     }
     hide() {
         let elem = document.getElementsByClassName("launcher");
         if (elem[0]) {
-            elem.forEach((el) => {
-                document.body.removeChild(el);
-            });
+            for (let i = 0; i < elem.length; i++)
+                document.body.removeChild(elem[i]);
         }
         elem = null;
     }

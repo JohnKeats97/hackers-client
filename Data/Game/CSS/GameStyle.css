@@ -255,8 +255,8 @@
 
 .shipFire_animation
 {
-    -webkit-animation: shipfire 1s infinite; /* Safari 4.0 - 8.0 */
-    animation: shipfire 1s infinite;
+    -webkit-animation: shipfire 1s 1; /* Safari 4.0 - 8.0 */
+    animation: shipfire 1s 1;
 }
 
 /* Safari 4.0 - 8.0 */

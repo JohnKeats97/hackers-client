@@ -3,6 +3,7 @@
 import BaseController from "./BaseController.js";
 import Services from "../Services.js";
 import MessageBox from "../Blocks/MessageBox/MessageBox.js";
+import Loader from "../Views/LoaderView/LoaderView.js";
 
 class LeaderboardController extends BaseController
 {
@@ -16,7 +17,8 @@ class LeaderboardController extends BaseController
 
     onShow()
     {
-        this.view.changeData({title: "Leaderboard", players: []});
+        let loader = new Loader();
+        loader.show();
         Services.getUser()
             .then(response =>
                 {
@@ -25,16 +27,13 @@ class LeaderboardController extends BaseController
                             .then(result =>
                             {
                                 let highlight = 10;
-
-                                this.deleteBackButton();
+                                loader.hide();
                                 this.view.changeData({title: "Leaderboard", players: result, highlightIndex: highlight});
-                                this.createBackButton();
                             })
                             .catch(() =>
                             {
-                                this.deleteBackButton();
+                                loader.hide();
                                 new MessageBox("Network error", "Can't get leaderboard info");
-                                this.createBackButton();
                             });
                     }
                     else
@@ -50,19 +49,21 @@ class LeaderboardController extends BaseController
                                     result.pop();
                                 }
 
-                                this.deleteBackButton();
+                                loader.hide();
                                 this.view.changeData({title: "Leaderboard", players: result, highlightIndex: highlight});
-                                this.createBackButton();
                             })
                             .catch(() =>
                             {
-                                this.deleteBackButton();
+                                loader.hide();
                                 new MessageBox("Network error", "Can't get leaderboard info");
-                                this.createBackButton();
                             });
                     }
             });
 
+    }
+
+    onHide(){
+        this.view.changeData({title: "Leaderboard", players: []});
     }
 }
 

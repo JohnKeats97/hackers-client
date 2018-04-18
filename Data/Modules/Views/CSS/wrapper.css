@@ -47,6 +47,10 @@
     align-items: center;
 }
 
+.wrapper_menu_width-40 {
+    width:40vw;
+}
+
 .wrapper_test {
     min-width: 200px;
     width: 80vw;

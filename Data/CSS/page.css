@@ -19,6 +19,9 @@
 
 
 .page__header {
+    z-index: 1000;
+    outline: none;
+    cursor: pointer;
     height: 5vh;
     font-size: 10vh;
     position: static;

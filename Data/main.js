@@ -17,6 +17,7 @@ import "./Modules/Views/CSS/wrapper.css"
 import "./Modules/Views/CSS/header2.css"
 import "./Modules/Views/CSS/input.css"
 import "./Modules/Views/StartTestView/TestView.css"
+import "./Modules/Views/LoaderView/Loader.css"
 import "./Modules/Views/AdminView/AdminView.css"
 import "./Modules/Views/BaseMenuView/BaseMenuView.css"
 import "./Modules/Views/LoginMenuView/LoginMenuView.css"
@@ -37,5 +38,11 @@ menuManager.go();
 
 // AddOrientationEvent();
 // OrientationChange();
+
+let header = document.getElementsByClassName("page__header")[0];
+header.addEventListener('click', ()=> {
+    let eventBus = new EventBus();
+    eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+});
 
 window.onpopstate = menuManager.go.bind(menuManager);

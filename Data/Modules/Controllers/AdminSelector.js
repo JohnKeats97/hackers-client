@@ -4,6 +4,7 @@ import AdminController from "./AdminController.js";
 import adminView from "../Views/AdminView/AdminView.js";
 import Services from "../Services.js";
 import MessageBox from "../Blocks/MessageBox/MessageBox.js";
+import Loader from "../Views/LoaderView/LoaderView.js";
 
 import EventBus from "../EventBus.js";
 
@@ -18,16 +19,20 @@ class AdminSelector
 
     show()
     {
+        let loader = new Loader();
+        loader.show();
         Services.getUser()
             .then(response =>
                 {
                     if(response.status === 0) {
                         let eventBus = new EventBus();
+                        loader.hide();
                         eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
                     }
                     else
                     {
                         if(response.email == "admin_mail@mail.ru" && response.login == "admin_mail") {
+                            loader.hide();
                             this.adminController.show();
                         }
                         else {
@@ -39,6 +44,7 @@ class AdminSelector
             .catch(() =>
                 {
                     let eventBus = new EventBus();
+                    loader.hide();
                     eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
                     new MessageBox("Offline", "You have gone offline;");
                 });

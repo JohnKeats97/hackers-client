@@ -32,28 +32,34 @@ class StartTestController
                     if (this.userTest.indexOf(id) < 0) {
                         item.addEventListener('click', ()=>{
                             let input = document.getElementById(id);
-                            let value = input.value;
-                            if (value.toString().trim()) {
-                                value = value.toString().trim();
-                                let loader = new Loader();
-                                loader.show();
-                                Services.checkTest(id, value)
-                                    .then((result) => {
-                                        loader.hide();
-                                        if (result.answer == "OK") {
-                                            alert("Верно");
-                                        }
-                                        else if (result.answer == "NOT") {
-                                            alert("Неверно");
-                                        }
-                                        else {
-                                            new MessageBox("Невозможно проверить задание");
-                                        }
-                                    })
-                                    .catch(error => {
-                                        loader.hide();
-                                        new MessageBox("Test Error", "Невозможно проверить задание");
-                                    });
+                            if (input) {
+                                let value = input.value;
+                                if (value.toString().trim()) {
+                                    value = value.toString().trim();
+                                    let loader = new Loader();
+                                    loader.show();
+                                    Services.checkTest(id, value)
+                                        .then((result) => {
+                                            debugger;
+                                            loader.hide();
+                                            let form = input.parentNode.parentNode;
+                                            if (result.answer == "OK") {
+                                                let parent = item.parentNode;
+                                                parent.innerHTML = "Вы уже выполнили это задание";
+                                                form.classList.remove("testForm_back-red");
+                                            }
+                                            else if (result.answer == "NOT") {
+                                                form.classList.add("testForm_back-red");
+                                            }
+                                            else {
+                                                new MessageBox("Невозможно проверить задание");
+                                            }
+                                        })
+                                        .catch(error => {
+                                            loader.hide();
+                                            new MessageBox("Test Error", "Невозможно проверить задание");
+                                        });
+                                }
                             }
                         });
                     }

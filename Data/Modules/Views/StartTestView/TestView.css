@@ -15,7 +15,9 @@
     text-align: center;
     padding-top: 2vh;
     color: #0ACF00;
-    font-size: 20px;
+    font-size: 25px;
+    height: 32px;
+    user-select: none;
 }
 
 .testForm__testButton {
@@ -31,11 +33,9 @@
     background-color: #3aaacf;
 }
 
-
 .testForm__testButton:hover {
     background-color: #3195B6;
 }
-
 
 .testForm__testInput {
     /*background: #A6C6DF;*/
@@ -66,3 +66,7 @@
     width: 60vw;
 }
 
+.testForm_back-red {
+    background: #ffdbe5;
+    transition: background 1s;
+}

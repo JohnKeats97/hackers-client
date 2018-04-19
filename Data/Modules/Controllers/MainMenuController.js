@@ -4,6 +4,7 @@ import BaseController from "./BaseController.js";
 import Button from "../Blocks/Button.js";
 import EventBus from "../EventBus.js";
 import Services from "../Services.js";
+import Loader from "../Views/LoaderView/LoaderView.js";
 
 const eventBus = new EventBus();
 
@@ -28,8 +29,11 @@ class MainMenuController extends BaseController
                     eventBus.emitEvent({type: "changeMenu", newMenuName: item.dataset.id});
                 }
                 else {
+                    let loader = new Loader();
+                    loader.show();
                     Services.logoutUser()
                         .then((response) => {
+                            loader.hide();
                             eventBus.emitEvent({type: "updateUser"});
                             eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
                         });

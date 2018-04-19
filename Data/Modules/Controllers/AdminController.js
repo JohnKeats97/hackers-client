@@ -32,12 +32,16 @@ class AdminController
                     text = text.value.toString().trim();
                     answer = answer.value.toString().trim();
                     if (name && text && answer) {
+                        let loader = new Loader();
+                        loader.show();
                         Services.addTestAdmin(name, text, answer)
                             .then(() => {
+                                loader.hide();
                                 let eventBus = new EventBus();
                                 eventBus.emitEvent({type: "changeMenu", newMenuName: "/admin"});
                             })
                             .catch(error => {
+                                loader.hide();
                                 new MessageBox("Add Error", "Невозможно добавить задание");
                             });
                     }
@@ -50,11 +54,15 @@ class AdminController
                         let id = item.dataset.id;
                         let test = document.getElementById(id);
                         if (test) {
+                            let loader = new Loader();
+                            loader.show();
                             Services.deleteTestAdmin(id)
                                 .then((result) => {
+                                    loader.hide();
                                     test.remove();
                                 })
                                 .catch(error => {
+                                    loader.hide();
                                     new MessageBox("Delete Error", "Невозможно удалить задание");
                                 });
                         }
@@ -76,11 +84,15 @@ class AdminController
                             text = text.toString().trim();
                             answer = answer.toString().trim();
                             if (name && text && answer) {
+                                let loader = new Loader();
+                                loader.show();
                                 Services.changeTestAdmin(id, name, text, answer)
                                     .then((result) => {
+                                        loader.hide();
                                         new MessageBox("Изменения сохранены");
                                     })
                                     .catch(error => {
+                                        loader.hide();
                                         new MessageBox("Delete Error", "Невозможно изменить задание");
                                     });
                             }

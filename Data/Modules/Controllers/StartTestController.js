@@ -19,11 +19,9 @@ class StartTestController
 
     onShow()
     {
-        let loader = new Loader();
         Services.getTest()
             .then(result =>
             {
-                loader.hide();
                 result = result.reverse();
                 this.view.changeData({title: "Start Test", menus: result});
 
@@ -37,9 +35,11 @@ class StartTestController
                             let value = input.value;
                             if (value.toString().trim()) {
                                 value = value.toString().trim();
+                                let loader = new Loader();
+                                loader.show();
                                 Services.checkTest(id, value)
                                     .then((result) => {
-                                        debugger;
+                                        loader.hide();
                                         if (result.answer == "OK") {
                                             alert("Верно");
                                         }
@@ -51,6 +51,7 @@ class StartTestController
                                         }
                                     })
                                     .catch(error => {
+                                        loader.hide();
                                         new MessageBox("Test Error", "Невозможно проверить задание");
                                     });
                             }
@@ -64,7 +65,6 @@ class StartTestController
             })
             .catch(() =>
             {
-                loader.hide();
                 new MessageBox("Ошибка соединения");
             });
         // loader.hide();
@@ -130,9 +130,9 @@ class StartTestController
 
     show(tests)
     {
-        let loader = new Loader();
         this.userTest = tests;
         this.onShow();
+        let loader = new Loader();
         loader.hide();
         this.view.show();
     }

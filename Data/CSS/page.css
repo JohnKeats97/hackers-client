@@ -20,7 +20,7 @@
 
 .page__header {
     user-select: none;
-    z-index: 1000;
+    z-index: 100;
     outline: none;
     cursor: pointer;
     height: 5vh;

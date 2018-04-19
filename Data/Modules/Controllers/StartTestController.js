@@ -45,7 +45,10 @@ class StartTestController
                                             let form = input.parentNode.parentNode;
                                             if (result.answer == "OK") {
                                                 let parent = item.parentNode;
-                                                parent.innerHTML = "Вы уже выполнили это задание";
+                                                // setTimeout(()=>{
+                                                        form.classList.add("testForm_back-green");
+                                                        parent.innerHTML = "Задание выполнено";
+                                                                // },990);
                                                 form.classList.remove("testForm_back-red");
                                             }
                                             else if (result.answer == "NOT") {
@@ -64,8 +67,10 @@ class StartTestController
                         });
                     }
                     else {
+                        let form = item.parentNode.parentNode;
+                        form.classList.add("testForm_back-green");
                         let parent = item.parentNode;
-                        parent.innerHTML = "Вы уже выполнили это задание";
+                        parent.innerHTML = "Задание выполнено";
                     }
                 });
             })

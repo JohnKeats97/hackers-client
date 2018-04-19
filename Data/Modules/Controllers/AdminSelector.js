@@ -31,10 +31,8 @@ class AdminSelector
                     }
                     else
                     {
-                        debugger;
                         if(response.email == "admin_mail@mail.ru" && response.login == "admin_mail") {
                             loader.hide();
-                            debugger;
                             this.adminController.show();
                         }
                         else {

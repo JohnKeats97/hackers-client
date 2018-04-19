@@ -14,7 +14,7 @@
 .testForm__testAnswer {
     text-align: center;
     padding-top: 2vh;
-    color: #0ACF00;
+    color: #fff;
     font-size: 25px;
     height: 32px;
     user-select: none;
@@ -61,12 +61,18 @@
     color: #000;
     margin-top: 15px;
     margin: auto;
-    background: #cfdbe5;
+    background: #cfdbe5d1;
     padding: 8px 20px 19px;
     width: 60vw;
+    /*transition: background 1s;*/
 }
 
 .testForm_back-red {
-    background: #ffdbe5;
+    background: #ff837dd1;
+    transition: background 1s;
+}
+
+.testForm_back-green {
+    background: #77e25db5;
     transition: background 1s;
 }

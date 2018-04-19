@@ -31,8 +31,10 @@ class AdminSelector
                     }
                     else
                     {
+                        debugger;
                         if(response.email == "admin_mail@mail.ru" && response.login == "admin_mail") {
                             loader.hide();
+                            debugger;
                             this.adminController.show();
                         }
                         else {
@@ -46,7 +48,7 @@ class AdminSelector
                     let eventBus = new EventBus();
                     loader.hide();
                     eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-                    new MessageBox("Offline", "You have gone offline;");
+                    new MessageBox("Ошибка соединения");
                 });
     }
 

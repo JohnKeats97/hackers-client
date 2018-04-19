@@ -19,6 +19,11 @@ class Services
         return Http.FetchGet("/test");
     }
 
+    static getUserTest()
+    {
+        return Http.FetchGet("/user-test");
+    }
+
     static getLeaders()
     {
         return Http.FetchGet("/leaderboard");

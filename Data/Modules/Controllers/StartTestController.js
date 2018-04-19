@@ -39,11 +39,15 @@ class StartTestController
                                 value = value.toString().trim();
                                 Services.checkTest(id, value)
                                     .then((result) => {
-                                        if (result.answer) {
+                                        debugger;
+                                        if (result.answer == "OK") {
                                             alert("Верно");
                                         }
-                                        else {
+                                        else if (result.answer == "NOT") {
                                             alert("Неверно");
+                                        }
+                                        else {
+                                            new MessageBox("Невозможно проверить задание");
                                         }
                                     })
                                     .catch(error => {
@@ -127,7 +131,6 @@ class StartTestController
     show(tests)
     {
         let loader = new Loader();
-        loader.show();
         this.userTest = tests;
         this.onShow();
         loader.hide();

@@ -19,12 +19,13 @@ class StartTestSelector
 
     show()
     {
-        debugger;
         let loader = new Loader();
         loader.show();
-        Services.getUser()
+        debugger;
+        Services.getUserTest()
             .then(response =>
                 {
+                    debugger;
                     if(response.status === 0) {
                         let eventBus = new EventBus();
                         loader.hide();
@@ -32,7 +33,8 @@ class StartTestSelector
                     }
                     else
                     {
-                        this.startTestController.show(response.tests);
+                        debugger;
+                        this.startTestController.show(response);
                         // this.startTestController.show([1, 3]);
                     }
                 })

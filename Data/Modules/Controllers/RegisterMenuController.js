@@ -55,18 +55,19 @@ class RegisterMenuController extends BaseController
             Services.registerUser(this.inputMail.value, this.inputNickname.value, this.inputPassword.value)
                 .then(function(response)
                 {
-                    Services.checkUser(email, password)
-                        .then(() => {
-                            loader.hide();
-                            eventBus.emitEvent({type: "updateUser"});
-                            eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-                        })
-                }.bind(email, password, loader))
+                    debugger;
+                    new MessageBox("Вам на почту было выслано письмо с подтверждением регистрации");
+                    eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+                })
                 .catch(error =>
                 {
                     loader.hide();
-                    // new MessageBox(error.response);
-                    new MessageBox("Этот пользователь уже зарегестрирован");
+                    if (error.status == 403) {
+                        new MessageBox("Ошибка почтовой рассылки, попробуйде другую почту");
+                    }
+                    else {
+                        new MessageBox("Этот пользователь уже зарегестрирован");
+                    }
                 });
         }
 

@@ -42,7 +42,12 @@ class LoginMenuController extends BaseController
                 })
                 .catch(error => {
                     loader.hide();
-                    new MessageBox("Ошибка входа");
+                    if (error.status == 403) {
+                        new MessageBox("Вы не подтвердили почту");
+                    }
+                    else {
+                        new MessageBox("Ошибка входа");
+                    }
                 });
         }
 

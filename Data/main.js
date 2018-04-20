@@ -31,6 +31,9 @@ if ('serviceWorker' in navigator) {
         .catch((err) => {console.log("Service worker error: " + err)});
 }
 
+let header = document.getElementsByClassName("page__header")[0];
+header.innerHTML = "HACKERS CONTEST";
+
 const eventBus = new EventBus();
 const menuManager = new MenuManager();
 eventBus.subscribe(menuManager);
@@ -39,7 +42,6 @@ menuManager.go();
 // AddOrientationEvent();
 // OrientationChange();
 
-let header = document.getElementsByClassName("page__header")[0];
 header.addEventListener('click', ()=> {
     let eventBus = new EventBus();
     eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});

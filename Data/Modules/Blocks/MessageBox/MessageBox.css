@@ -28,6 +28,7 @@
 
 .buttonMessageOK
 {
+    outline: none;
     height: 5vh;
     margin: 10px;
     font-size: 3vh;

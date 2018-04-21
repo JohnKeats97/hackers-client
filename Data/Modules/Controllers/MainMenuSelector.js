@@ -26,7 +26,9 @@ class MainMenuSelector
                 {
                     let eventBus = new EventBus();
                     loader.hide();
+                    debugger;
                     eventBus.emitEvent({type: "changeMenu", newMenuName: "/menuUnRegister"});
+                    debugger;
                 }
                 else
                 {

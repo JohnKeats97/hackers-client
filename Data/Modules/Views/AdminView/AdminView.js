@@ -6,7 +6,7 @@ let generateAdminView = require("./AdminView.pug");
 
 const adminView = new BaseView(document.getElementsByClassName("page")[0], generateAdminView,
     {
-        title: "Меню",
+        title: 0,
         menus: []
     });
 

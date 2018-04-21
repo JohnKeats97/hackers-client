@@ -11,7 +11,7 @@
     outline: none;
     border-radius: 10px 10px 0 0;
     border: none;
-    margin-top: 7vh;
+    margin-top: 8vh;
     width: 100%;
     height: 30px;
     font-size: 20px;
@@ -114,3 +114,62 @@
     color: white;
 }
 
+.adminButtons_button {
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    border-radius: 20px;
+    background: #3AAACF;
+    border: none;
+    height: 56px;
+    font-size: 3vh;
+    cursor: pointer;
+    outline: none;
+    width: 22vw;
+    color: white;
+}
+
+.adminButtons {
+    margin: auto;
+}
+
+.button-changeTimeTestAdmin {
+    margin-left: 5vw;
+}
+
+
+.button-addTestAdmin {
+    margin-right: 5vw;
+}
+
+.changeTimeTest {
+    margin-top: 8vh;
+}
+
+.changeTimeTestForm {
+    font-size: 4vh;
+}
+
+.changeTimeTestForm_timeForm {
+    margin-top: 2vh;
+}
+
+.changeTimeTestForm_textTime {
+    margin-left: 1vw;
+    height: 25px;
+    width: 70px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 5px 0 5px 5px;
+    font-size: 3.5vh;
+    background: #ffffffd1;
+}
+
+.end-time {
+    margin-left: 2vh;
+}
+
+.button-AddTest-time {
+    margin-right: 0;
+}

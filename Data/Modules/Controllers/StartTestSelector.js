@@ -21,11 +21,10 @@ class StartTestSelector
     {
         let loader = new Loader();
         loader.show();
-        debugger;
         Services.getUserTest()
             .then(response =>
                 {
-                    debugger;
+
                     if(response.status === 0) {
                         let eventBus = new EventBus();
                         loader.hide();
@@ -33,9 +32,27 @@ class StartTestSelector
                     }
                     else
                     {
-                        debugger;
-                        this.startTestController.show(response);
-                        // this.startTestController.show([1, 3]);
+                        let testId = response;
+                        Services.getTime().then(response => {
+                            let date = new Date();
+                            date = date.toISOString().toString().slice(0,10);
+                            if (response.start <= date && date < response.stop) {
+                                this.startTestController.show(testId);
+                            }
+                            else {
+                                let eventBus = new EventBus();
+                                loader.hide();
+                                eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+                                new MessageBox("Контест начинается: " +
+                                    response.start + " и заканчивается: " + response.stop);
+                            }
+                        })
+                            .catch(()=>{
+                                let eventBus = new EventBus();
+                                loader.hide();
+                                eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
+                                new MessageBox("Ошибка времени выполнения");
+                            })
                     }
                 })
             .catch(() =>
@@ -43,7 +60,7 @@ class StartTestSelector
                     let eventBus = new EventBus();
                     loader.hide();
                     eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-                    new MessageBox("Offline", "You have gone offline;");
+                    new MessageBox("Ошибка подключения к сети");
                 });
     }
 

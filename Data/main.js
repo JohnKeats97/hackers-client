@@ -24,6 +24,7 @@ import "./Modules/Views/LoginMenuView/LoginMenuView.css"
 import "./Modules/Views/AboutMenuView/AboutMenuView.css"
 import "./Modules/Views/LeaderboardView/LeaderboardView.css"
 import "./Modules/Blocks/MessageBox/MessageBox.css";
+import "./Modules/Blocks/TimeAdminBox/TimeAdminBox.css";
 import "./Modules/Blocks/LoadingScreen/LoadingScreen.css";
 
 if ('serviceWorker' in navigator) {

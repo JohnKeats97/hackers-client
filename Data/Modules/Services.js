@@ -9,6 +9,14 @@ import Http from "./Http/http.js";
 
 class Services
 {
+    static getTime() {
+        return Http.FetchGet("/time");
+    }
+
+    static setTime(start, stop) {
+        return Http.FetchPost("/time", {"start": start, "stop": stop});
+    }
+
     static getTestAdmin()
     {
         return Http.FetchGet("/test-admin");

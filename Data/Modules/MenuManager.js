@@ -7,20 +7,13 @@ import aboutMenuView from "./Views/AboutMenuView/AboutMenuView.js";
 import leaderboardView from "./Views/LeaderboardView/LeaderboardView.js";
 import loginMenuView from "./Views/LoginMenuView/LoginMenuView.js";
 import registerMenuView from "./Views/RegisterMenuView/RegisterMenuView.js";
-import userProfileBlockView from "./Views/UserProfileBlockView/UserProfileBlockView.js";
-import MainMenuController from "./Controllers/MainMenuController.js";
 import MainMenuUnRegisterController from "./Controllers/MainMenuUnRegisterController.js";
 import AboutMenuController from "./Controllers/AboutMenuController.js";
 import LeaderboardController from "./Controllers/LeaderboardController.js";
-import GameModeMenuController from "./Controllers/GameModeMenuController.js";
 import LoginMenuController from "./Controllers/LoginMenuController.js";
 import RegisterMenuController from "./Controllers/RegisterMenuController.js";
-import UserProfileBlockController from "./Controllers/UserProfileBlockController.js";
 import StartTestSelector from "./Controllers/StartTestSelector.js";
 import AdminSelector from "./Controllers/AdminSelector.js";
-import StandAloneController from "./Controllers/StandAloneController.js";
-import SingleplayerController from "./Controllers/SingleplayerController.js";
-import MultiplayerController from "./Controllers/MultiplayerController.js";
 import MainMenuSelector from "./Controllers/MainMenuSelector";
 
 class MenuManager extends Subscriber
@@ -41,16 +34,9 @@ class MenuManager extends Subscriber
                 "/admin": new AdminSelector(),
                 "/startGame/login": new LoginMenuController(loginMenuView),
                 "/startGame/register": new RegisterMenuController(registerMenuView),
-                // "/startGame/offline": new StandAloneController(),
-                // "/startGame/online": new SingleplayerController(),
-                // "/startGame/multiplayer": new MultiplayerController(),
             };
 
         this.currentMenu = this.menus["/"];
-        // this.currentMenu.show();
-
-        this.profileBlock = new UserProfileBlockController(userProfileBlockView);
-        //this.profileBlock.show();
 
         MenuManager.instance = this;
     }
@@ -81,8 +67,6 @@ class MenuManager extends Subscriber
         }
         else if(event.type === "goBack")
             window.history.back();
-        else if(event.type === "updateUser")
-            this.profileBlock.updateUser();
     }
 
     registerMenu(URL, controller)

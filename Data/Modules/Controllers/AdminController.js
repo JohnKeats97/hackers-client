@@ -71,7 +71,7 @@ class AdminController
                                 })
                                 .catch(error => {
                                     loader.hide();
-                                    new MessageBox("Delete Error", "Невозможно удалить задание");
+                                    new MessageBox("Невозможно удалить задание");
                                 });
                         }
 

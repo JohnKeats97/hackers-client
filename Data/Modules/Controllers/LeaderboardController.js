@@ -33,7 +33,7 @@ class LeaderboardController extends BaseController
                             .catch(() =>
                             {
                                 loader.hide();
-                                new MessageBox("Network error", "Can't get leaderboard info");
+                                new MessageBox("Ошибка соединения");
                             });
                     }
                     else
@@ -55,7 +55,7 @@ class LeaderboardController extends BaseController
                             .catch(() =>
                             {
                                 loader.hide();
-                                new MessageBox("Network error", "Can't get leaderboard info");
+                                new MessageBox("Ошибка соединения");
                             });
                     }
             });

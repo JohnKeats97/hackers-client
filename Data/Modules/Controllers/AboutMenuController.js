@@ -30,7 +30,7 @@ class AboutMenuController extends BaseController
             .catch((error) =>
             {
                 loader.hide();
-                new MessageBox("Network error", "Can't get about info");
+                new MessageBox("Ошибка соединения");
             });
     }
 }

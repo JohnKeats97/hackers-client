@@ -2,15 +2,10 @@
 // JS
 import MenuManager from "./Modules/MenuManager.js";
 import EventBus from "./Modules/EventBus.js";
-import {AddOrientationEvent, OrientationChange} from "./Modules/OrientationChange.js";
-import LoadingScreen from "./Modules/Blocks/LoadingScreen/LoadingScreen.js";
 // CSS
 import "./CSS/body.css"
 import "./CSS/page.css"
-import "./Game/CSS/GameStyle.css"
-import "./Game/CSS/LoaderStyle.css"
 import "./Modules/Blocks/Input/Input.css"
-import "./Modules/Views/UserProfileBlockView/UserProfileBlock.css"
 import "./Modules/Views/BaseView/BaseView.css"
 import "./Modules/Views/CSS/button.css"
 import "./Modules/Views/CSS/wrapper.css"
@@ -39,9 +34,6 @@ const eventBus = new EventBus();
 const menuManager = new MenuManager();
 eventBus.subscribe(menuManager);
 menuManager.go();
-
-// AddOrientationEvent();
-// OrientationChange();
 
 header.addEventListener('click', ()=> {
     let eventBus = new EventBus();

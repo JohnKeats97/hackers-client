@@ -15,18 +15,18 @@ class MainMenuController extends BaseController
         super(view);
 
         this.buttons = {};
-        this.view.element.childNodes[0].childNodes[1].childNodes.forEach((item) =>
-        {
-            let id = item.dataset.id;
+        let item = this.view.element.childNodes[0].childNodes[1].childNodes;
+        for (let i = 0; i < item.length; i++) {
+            let id = item[i].dataset.id;
             if(id === undefined || id === "back")
                 return;
 
-            this.buttons[id] = new Button(item);
+            this.buttons[id] = new Button(item[i]);
 
-            item.addEventListener("click", () =>
+            item[i].addEventListener("click", () =>
             {
-                if (item.dataset.id != "/logout") {
-                    eventBus.emitEvent({type: "changeMenu", newMenuName: item.dataset.id});
+                if (item[i].dataset.id != "/logout") {
+                    eventBus.emitEvent({type: "changeMenu", newMenuName: item[i].dataset.id});
                 }
                 else {
                     let loader = new Loader();
@@ -39,7 +39,7 @@ class MainMenuController extends BaseController
                         });
                 }
             });
-        });
+        }
 
         this.title = "Menu";
         this.url = "/";

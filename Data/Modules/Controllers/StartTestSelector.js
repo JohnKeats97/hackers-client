@@ -36,14 +36,14 @@ class StartTestSelector
                         Services.getTime().then(response => {
                             let date = new Date();
                             date = date.toISOString().toString().slice(0,10);
-                            if (response.start <= date && date < response.stop) {
+                            if (response.start <= date && date <= response.stop) {
                                 this.startTestController.show(testId);
                             }
                             else {
                                 let eventBus = new EventBus();
                                 loader.hide();
                                 eventBus.emitEvent({type: "changeMenu", newMenuName: "/"});
-                                new MessageBox("Контест начинается: " +
+                                new MessageBox("Соревноварие начинается: " +
                                     response.start + " и заканчивается: " + response.stop);
                             }
                         })

@@ -115,6 +115,12 @@ class AdminController
             });
     }
 
+    dataValidate (data) {
+        if ((new Date (data)) == 'Invalid Date')
+            return false;
+        return true;
+    }
+
     showTimeSettings() {
         let loader = new Loader();
         loader.show();
@@ -138,20 +144,33 @@ class AdminController
                 addButton.addEventListener('click', function ()
                 {
                     let dataAll = document.querySelectorAll(".changeTimeTestForm_textTime");
-                    // if (name && text && answer) {
-                    //     let loader = new Loader();
-                    //     loader.show();
-                    //     Services.addTestAdmin(name, text, answer)
-                    //         .then(() => {
-                    //             loader.hide();
-                    //             new MessageBox("Задание добавлено");
-                    //         })
-                    //         .catch(error => {
-                    //             loader.hide();
-                    //             new MessageBox("Невозможно добавить задание");
-                    //         });
-                    // }
-                });
+                    let start = {};
+                    start.y = dataAll[2].value;
+                    start.m = dataAll[1].value;
+                    start.d = dataAll[0].value;
+                    let timeStart = start.y + "-" + start.m + "-" + start.d;
+                    let stop = {};
+                    stop.y = dataAll[5].value;
+                    stop.m = dataAll[4].value;
+                    stop.d = dataAll[3].value;
+                    let timeStop = stop.y + "-" + stop.m + "-" + stop.d;
+                    if (this.dataValidate(timeStart) && this.dataValidate(timeStop)) {
+                        let loader = new Loader();
+                        loader.show();
+                        Services.setTime(timeStart, timeStop)
+                            .then(() => {
+                                loader.hide();
+                                new MessageBox("Изменения сохранены");
+                            })
+                            .catch(error => {
+                                loader.hide();
+                                new MessageBox("Невозможно изменить дату");
+                            });
+                    }
+                    else {
+                        new MessageBox("Введите валидные данные");
+                }
+                }.bind(this));
             })
             .catch(() => {
                 loader.hide();

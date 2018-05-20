@@ -3,7 +3,7 @@ const cacheList = ["/main2.js", "/Resources/Textures/hackers.jpg",
     "https://fonts.googleapis.com/css?family=Indie+Flower",
 ];
 
-const cacheName = "Hackers Contest-v11";
+const cacheName = "Hackers Contest-v12";
 
 this.addEventListener("install", (event) =>
 {

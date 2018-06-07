@@ -25,7 +25,7 @@ class AboutMenuController extends BaseController
             {
                 loader.hide();
                 // this.view.changeData({title: "About", text: res.about});
-                this.view.changeData({title: "About", text: "Created by John Buevich"});
+                this.view.changeData({title: "About", text: "Created by Vadim Efimenko"});
             })
             .catch((error) =>
             {
